@@ -3,7 +3,7 @@ import { openAuthSessionAsync } from "expo-web-browser";
 import { Account, Avatars, Client, OAuthProvider } from "react-native-appwrite";
 
 export const config={
-        platform: 'com.gp.restate',
+        platform: "com.gp.restate",
         endpoint : process.env.EXPO_PUBLIC_APPWRITE_ENDPOINT,
         projectId: process.env.EXPO_PUBLIC_APPWRITE_PROJECT_ID,
 }
@@ -22,12 +22,12 @@ export async function login() {
         try {
                 const redirectUri = Linking.createURL('/');
 
-                const response = await account.createOAuth2Session(
+                const response = await account.createOAuth2Token(
                         OAuthProvider.Google,
                         redirectUri
                 );
 
-                if(!response) throw new Error("Login failed");
+                if(!response) throw new Error("Create OAuth2 token failed");
 
                 const browserResult = await openAuthSessionAsync(
                         response.toString(),
@@ -65,7 +65,7 @@ export async function logout() {
         }
 }       
 
-export async function getUser() {
+export async function getCurrentUser() {
         try {
                 const response = await account.get();
 
