@@ -13,8 +13,8 @@ Make sure you have the following installed on your machine:
 **Cloning the Repository**
 
 ```bash
-git clone https://github.com/adrianhajdin/react_native-restate.git
-cd react_native-restate
+git clone https://github.com/Roh7n/ExpoEstate.git
+cd ExpoEstate
 ```
 
 **Installation**
