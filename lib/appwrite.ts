@@ -76,7 +76,7 @@ export async function getCurrentUser() {
                                 avatar: userAvatar.toString(),
                        }
                 }
-                
+                return null;
         } catch (error) {
                 console.error(error);
                 return null;

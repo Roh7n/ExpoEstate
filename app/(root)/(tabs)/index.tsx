@@ -1,9 +1,65 @@
-import { Text, View } from "react-native";
+import { Card, FeaturedCards } from "@/components/Cards";
+import Filters from "@/components/Filters";
+import Search from "@/components/Search";
+import icons from "@/constants/icons";
+import images from "@/constants/images";
+import { Image, Text, TouchableOpacity, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Index() {
   return (
-      <View className="px-5  bg-white h-full items-center justify-center">
-        <Text className="font-bold text-3xl my-10 font-rubik">Welcome to Expo Estate</Text>
-      </View>
+      <SafeAreaView className="bg-white h-full">
+        <View className="px-5">
+
+          <View className="flex flex-row items-center justify-between mt-5">
+            <View className="flex flex-row items-center">
+              <Image source={images.avatar} className="size-12 rounded-full"/>
+              <View className="flex flex-col ml-2 items-start justify-center">
+                <Text className="text-xs font-rubic text-black-100">Good morning</Text>
+                <Text className="text-base font-rubik-medium text-black-300">Adrian</Text>
+              </View>
+            </View>
+            <Image source={icons.bell} className="size-6"/>
+          </View>
+
+          <Search />
+
+          <View className="my-5">
+            <View className="flex flex-row items-center justify-between ">
+              <Text className="text-xl font-rubik-bold text-black-300">
+                Featured
+              </Text>
+              <TouchableOpacity>
+                <Text className="text-base font-rubik-bold text-primary-300">See All</Text>
+              </TouchableOpacity>
+            </View>
+
+            <View className="flex flex-row gap-5 mt-5">
+              <FeaturedCards/>
+              <FeaturedCards/>
+              <FeaturedCards/>
+            </View>
+          </View>
+          
+          <View className="flex flex-row items-center justify-between ">
+              <Text className="text-xl font-rubik-bold text-black-300">
+                Our Recommendation
+              </Text>
+              <TouchableOpacity>
+                <Text className="text-base font-rubik-bold text-primary-300">See All</Text>
+              </TouchableOpacity>
+          </View>
+
+          <Filters/>
+
+          <View className="flex flex-row gap-5 mt-5">
+            <Card />
+            <Card />
+          </View>
+
+        </View>
+        
+        
+      </SafeAreaView>
   );
 }
