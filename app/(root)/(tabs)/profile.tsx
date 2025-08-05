@@ -41,10 +41,7 @@ const Profile = () => {
 
   return (
     <SafeAreaView className="h-full bg-white">
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerClassName="pb-32 px-7"
-      >
+      <ScrollView showsVerticalScrollIndicator={false} contentContainerClassName="pb-32 px-7">
         <View className="flex flex-row justify-between mt-5">
           <Text className="text-xl font-rubik-bold">Profile</Text>
           <Image source={icons.bell} className="size-5" />
@@ -65,9 +62,7 @@ const Profile = () => {
           <SettingsItem icon={icons.wallet} title="Payments" />
         </View>
         <View className="flex flex-col mt-5 border-t pt-5 border-primary-200">
-          {settings.slice(2).map((item, index) => (
-            <SettingsItem key={index} {...item}/>
-          ))}
+          {settings.slice(2).map((item, index) => (<SettingsItem key={index} {...item}/>))}
         </View>
         <View className="flex flex-col mt-5 border-t pt-5 border-primary-200">
           <SettingsItem icon={icons.logout} title="Logout" textStyle="text-danger" showArrow={false} onPress={handleLogout} />
