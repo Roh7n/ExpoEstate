@@ -47,7 +47,7 @@ export async function login() {
                 const secret = url.searchParams.get('secret')?.toString();
                 const userId = url.searchParams.get('userId')?.toString();
 
-                if (!secret || !userId) throw new Error("Failed to Login");
+                if (!secret || !userId) throw new Error("Create OAuth2 token failed");
 
                 const session = await account.createSession(userId, secret);
 
@@ -63,8 +63,8 @@ export async function login() {
 
 export async function logout() {
         try {
-                await account.deleteSession('current');
-                return true;
+                const result = await account.deleteSession("current");
+                return result;
         } catch (error) {
                 console.error(error);
                 return false;
@@ -84,7 +84,7 @@ export async function getCurrentUser() {
                 }
                 return null;
         } catch (error) {
-                console.error(error);
+                console.log(error);
                 return null;
         }
 }        
